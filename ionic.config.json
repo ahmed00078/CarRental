@@ -1,0 +1,7 @@
+{
+  "name": "CarRental",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
