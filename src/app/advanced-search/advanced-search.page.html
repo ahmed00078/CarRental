@@ -1,0 +1,54 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>advanced-search</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Advanced Search</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form  (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label>Catégorie</ion-label>
+      <ion-select formControlName="category">
+        <ion-select-option value="">Tout</ion-select-option>
+        <ion-select-option *ngFor="let category of categories" [value]="category">{{ category }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Marque</ion-label>
+      <ion-select formControlName="brand">
+        <ion-select-option value="">Tout</ion-select-option>
+        <ion-select-option *ngFor="let brand of brands" [value]="brand">{{ brand }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Modèle</ion-label>
+      <ion-select formControlName="model">
+        <ion-select-option value="">Tout</ion-select-option>
+        <ion-select-option *ngFor="let model of models" [value]="model">{{ model }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>Price Range (DT)</ion-label>
+      <ion-range formControlName="priceRange" min="0" max="1000" pin="true">
+        <ion-icon slot="start" name="trending-down"></ion-icon>
+        <ion-icon slot="end" name="trending-up"></ion-icon>
+      </ion-range>
+      <div range-knob-handle>searchForm.get('priceRange').value</div>
+    </ion-item>
+    
+    <ion-button expand="block" class="filter-btn" type="submit" [disabled]="!searchForm.valid">Filtrer</ion-button>
+
+  </form>
+</ion-content>
+

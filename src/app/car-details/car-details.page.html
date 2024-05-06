@@ -1,0 +1,56 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>car-details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ car.brand }} {{ car.model }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <img [src]="car.image" [alt]="car.brand + ' ' + car.model">
+    <ion-card-content>
+    
+      <ion-list>
+        <ion-list-header>Détails de la voiture</ion-list-header>
+        <ion-item>
+          <ion-icon name="car"></ion-icon>
+          <ion-label>Marque: {{car.brand}} </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="car"></ion-icon>
+          <ion-label>Modèle: {{car.model}} </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="car"></ion-icon>
+          <ion-label>Vitesse maximale: {{car.speed}} </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="car"></ion-icon>
+          <ion-label>Boîte: {{car.gear}} </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="car"></ion-icon>
+          <ion-label>Nombre de places: {{car.places}} </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="car"></ion-icon>
+          <ion-label>Tarif: {{car.price}}DT par jour </ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-col>
+        <ion-button expand="block" class="rent-btn">Louer Maintenant</ion-button>
+      </ion-col>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+

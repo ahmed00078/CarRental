@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="login-logo">
+    <img src="assets/img/logo2.jpg" alt="Logo">
+  </div>
+  
+  <form class="login-form container" (submit)="login()">
+    <ion-list>
+      <ion-item>
+        <ion-label class="label" stacked>Identifiant</ion-label>
+        <ion-input type="text" [(ngModel)]="username" name="username"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="label" stacked>Mot de passe</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <button ion-button block class="btn" type="submit">Se connecter</button>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <div class="login-options">
+    <p>Vosu n'avez pas de compte ? <a href="#" class="register-link" (click)="goToSignup()">S'inscrire</a></p>
+  </div>
+</ion-content>
+
+<style>
+  .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .login-logo img {
+    margin-top: 20px;
+    max-width: 120px;
+    border-radius: 50%;
+    position: absolute;
+    left: 32%;
+    
+  }
+
+  .login-form {
+    padding: 0 20px;
+    margin-top: 120px;
+  }
+  .label {
+    color: #2E2E2E;
+  }
+  .btn {
+    background-color: #2E2E2E;
+  }
+  .register-link {
+    font-weight: bold;
+  }
+
+  .login-options {
+    margin-top: 30px;
+    text-align: center;
+  }
+</style>

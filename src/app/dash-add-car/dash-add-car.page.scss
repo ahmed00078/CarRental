@@ -1,0 +1,20 @@
+ion-item {
+    margin-bottom: 20px;
+  }
+
+  ion-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 180px;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    background-color: #4F5D75;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+  }

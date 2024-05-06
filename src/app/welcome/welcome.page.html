@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Car Rental</ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="toolbar">
+    <!-- <ion-searchbar class="search" [(ngModel)]="searchQuery" (ionInput)="onSearchInput($event)" (ionClear)="onClearSearch()"></ion-searchbar>
+      <button class="filter-link" (click)="goToAdvancedSearch()" ion-button icon-only>
+        <ion-icon name="options"></ion-icon>
+      </button> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      Welcome
+      <!-- <ion-button (click)="printMessage('Hello from the button!')">Click Me</ion-button> -->
+      <!-- <ion-col class="card-container" *ngFor="let car of filteredItems">
+          <ion-card class="car-card" (click)="onCardClick(car)">
+            <img src="{{ car.image }}" alt="{{ car.brand }} {{ car.model }}">
+            <ion-card-content>
+              <ion-card-title class="car-name">
+                {{ car.brand }} {{ car.model }}
+              </ion-card-title>
+              <p class="car-price">{{ car.price }}DT par jour</p>
+            </ion-card-content>
+          </ion-card>
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<style>
+  .card-container {
+    align-items: center;
+    justify-content: space-between;
+  }
+  .car-card {
+    background-color: #ced4da;
+    border-radius: 5%;
+    cursor: pointer;
+    height: 180px;
+    width: 145px;
+    margin: 0px;
+  }
+  .filter-link {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 4.5px;
+    right: 5px;
+    background-color: #2196F3;
+  }
+  .toolbar {
+    display: flex;
+    flex-direction: row;
+  }
+  .search {
+    width: 85%;
+  }
+  .car-name {
+    font-size: 17px;
+    font-weight: 800;
+  }
+  .car-price {
+    font-size: 12px;
+    
+  }
+  img {
+    width: 125px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+</style>
