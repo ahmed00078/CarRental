@@ -1,0 +1,122 @@
+
+
+<ion-content>
+
+  <ion-card class="profile-card"> 
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="../../assets/img/fedi.png" />
+      </ion-avatar>
+      <ion-label class="ion-text-wrap">
+        <p>{{user.firstName}} {{user.lastName}} </p>
+      </ion-label>
+      <ion-label class="logout-element">
+        <a href="#" (click)="goToLogin()"><ion-icon class="logout-icon" name="log-out" item-start></ion-icon></a>
+      </ion-label>
+    </ion-item>
+  </ion-card>  
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="details-title">Informations personnelles</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label class="details-labels">Nom</ion-label>
+          <ion-input class="details" [(ngModel)]="user.lastName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Prénom</ion-label>
+          <ion-input class="details" [(ngModel)]="user.firstName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Adresse</ion-label>
+          <ion-input class="details" [(ngModel)]="user.address"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Email</ion-label>
+          <ion-input class="details" [(ngModel)]="user.email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Téléphone</ion-label>
+          <ion-input class="details" [(ngModel)]="user.phone"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button class="save-btn" color="primary" (click)="saveChanges()">Enregistrer</button>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="details-title">Voitures louées</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item style="font-size: 14px;" *ngFor="let car of user.rentedCars">
+          {{ car }}
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+
+ 
+</ion-content>
+
+
+<style>
+  
+  .profile-card {
+    border-radius: 5%;
+    align-items: center;
+  }
+  .icon {
+    width: 40px;
+    margin-right: 10px;
+    margin-bottom: 5px;
+  }
+  .dash-button {
+    margin-left: 11vw;
+    width: 250px;
+    height: 60px;
+    margin-top: 20px;
+    border-radius: 3%;
+    background-color: #4F5D75;
+  }
+  .logout-element{
+    position: absolute;
+    right: 0;
+  }
+  .logout-icon{
+    color: #e63946;
+  }
+  .details-title {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .details{
+    font-size: 14px;
+  }
+  .details-labels {
+    font-size: 16px;
+  }
+  .save-btn {
+    margin-top: 20px;
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        width: 180px;
+        margin: 20px;
+        margin-left: 75px;
+        border-radius: 10px;
+        border: 2px solid #ccc;
+        background-color: #2196F3;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-in-out;
+  }
+</style>

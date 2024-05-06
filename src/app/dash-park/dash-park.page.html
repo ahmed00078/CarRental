@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Gérer parc de voitures</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" style="margin-top: 20px;">
+  <ion-button expand="block" (click)="addCar()">
+    <ion-icon name="add"></ion-icon>
+    Ajouter Voiture
+  </ion-button>
+  <ion-button expand="block" (click)="manageCars()">
+    <ion-icon name="create"></ion-icon>
+    Modifier détails de voiture
+  </ion-button>
+  <ion-button expand="block" (click)="removeCar()">
+    <ion-icon name="close"></ion-icon>
+    Supprimer Voiture
+  </ion-button>
+  <ion-button expand="block" (click)="checkAvailability()">
+    <ion-icon name="time"></ion-icon>
+    Vérifier Disponibilité
+  </ion-button>
+  <ion-button expand="block" (click)="checkMaintenance()">
+    <ion-icon name="cog"></ion-icon>
+    Vérifier Maintenance
+  </ion-button>
+</ion-content>
+

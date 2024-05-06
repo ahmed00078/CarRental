@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>dash-add-car</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ajouter Voiture</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="stacked">Type</ion-label>
+    <ion-input [(ngModel)]="car.type"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Marque</ion-label>
+    <ion-input [(ngModel)]="car.brand"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Modèle</ion-label>
+    <ion-input [(ngModel)]="car.model"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Tarif</ion-label>
+    <ion-input [(ngModel)]="car.price" type="number"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Boîte</ion-label>
+    <ion-input [(ngModel)]="car.gear"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Nombre de places</ion-label>
+    <ion-input [(ngModel)]="car.places"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="addCar()">Ajouter Voiture</ion-button>
+</ion-content>
+
