@@ -1,74 +1,57 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-// import { LoginPage } from '../login/login';
-
-interface SignUpData {
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-signup',
-  templateUrl: 'signup.page.html',
-  styleUrls: ['signup.page.scss']
+  templateUrl: './signup.page.html',
+  styleUrls: ['./signup.page.scss'],
 })
-export class SignupPage {
+export class SignupPage implements OnInit {
+  signupForm!: FormGroup;
 
-  fullName: string = '';
-  email: string = '';
-  password: string = '';
-  confirmPassword: string = '';
+  constructor(
+    private formBuilder: FormBuilder,
+    private navCtrl: NavController,
+    private authService: AuthService
+  ) {}
 
-  constructor(public navCtrl: NavController) {}
-
-  data: SignUpData = {
-    username: this.fullName,
-    email: this.email,
-    password: this.password,
-    confirmPassword: this.confirmPassword,
-  }
-
-  verifySignUpData(data: SignUpData): boolean {
-    const { username, email, password, confirmPassword } = data;
-    let isValid = true; // use a flag variable
-    
-    // Check if username is not empty
-    if (!username) {
-      console.error("Username is required.");
-      isValid = false;
-    }
-  
-    // Check if email is not empty and has a valid format
-    if (!email || !/\S+@\S+\.\S+/.test(email)) {
-      console.error("Email is required and must be in a valid format.");
-      isValid = false;
-    }
-  
-    // Check if password is not empty and has at least 6 characters
-    if (!password || password.length < 6) {
-      console.error("Password is required and must be at least 6 characters long.");
-      isValid = false;
-    }
-  
-    // Check if confirmPassword matches password
-    if (password !== confirmPassword) {
-      console.error("Confirm password does not match.");
-      isValid = false;
-    }
-  
-    if (isValid) {
-      alert('Success');
-      return true;
-    } else {
-      alert('Error');
-      return false;
-    }
+  ngOnInit() {
+    this.signupForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      confirmPassword: ['', Validators.required],
+    });
   }
 
   signup() {
-    this.verifySignUpData(this.data);
+    if (this.signupForm.valid) {
+      const { firstName, lastName, email, password, confirmPassword } = this.signupForm.value;
+      const userData = {
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+      };
+
+      this.authService.signup(userData).subscribe(
+        (response) => {
+          if (response) {
+            this.navCtrl.navigateRoot('/profile');
+            console.log('Inscription réussie', response);
+          } else {
+            console.log('Erreur lors de l\'inscription');
+          }
+        },
+        (error) => {
+          console.error('Erreur lors de l\'inscription', error);
+        }
+      );
+    }
   }
 
   goToLogin() {

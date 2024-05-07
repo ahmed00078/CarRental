@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
-// import { SignupPage } from '../signup/signup';
-// import { TabsPage } from '../tabs/tabs';
-// import { DashAdminPage } from '../dash-admin/dash-admin';
-import { AlertController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,25 +8,26 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['login.page.scss']
 })
 export class LoginPage {
-  username: string | undefined;
+  email: string | undefined;
   password: string | undefined;
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController) {}
+  constructor(public navCtrl: NavController, private authService: AuthService) {}
 
   async login() {
-    if (this.username === 'user' && this.password === 'user') {
-      this.navCtrl.navigateRoot('/tabs');
-    } else if (this.username === 'admin' && this.password === 'admin') {
-      this.navCtrl.navigateRoot('/dash-admin');
-    } else {
-      const alert = this.alertCtrl.create({
-        header: 'Erreur de connexion',
-        subHeader: `Désolé, votre identifiant ou mot de passe est invalide`,
-        buttons: ['OK'],
-        cssClass: 'login-alert',
-      });
-      (await alert).present();
-    }
+    this.authService.login({ email: this.email!, password: this.password! }).subscribe(
+      (response) => {
+          console.log('Connexion réussie');
+          console.log('Réponse du service d\'authentification :', response);
+          if (response.role === 'Regular') {
+            this.navCtrl.navigateRoot('/profile');
+          } else if (response.role === 'Admin') {
+            this.navCtrl.navigateRoot('/dash-admin');
+          }
+      },
+      (error) => {
+        console.error('Erreur de connexion', error);
+      }
+    );
   }
 
   goToSignup() {
