@@ -5,10 +5,10 @@
   <ion-card class="profile-card"> 
     <ion-item>
       <ion-avatar item-start>
-        <img src="../../assets/img/fedi.png" />
+        <img src="../../assets/img/fedi.jpg" />
       </ion-avatar>
-      <ion-label class="ion-text-wrap">
-        <p>{{user.firstName}} {{user.lastName}} </p>
+      <ion-label class="ion-text-wrap" >
+        <p style="margin-right: 20px;">{{user.firstName}}  </p>
       </ion-label>
       <ion-label class="logout-element">
         <a href="#" (click)="goToLogin()"><ion-icon class="logout-icon" name="log-out" item-start></ion-icon></a>
@@ -23,23 +23,23 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label class="details-labels">Nom</ion-label>
+          <ion-label class="details-labels">Nom : </ion-label>
           <ion-input class="details" [(ngModel)]="user.lastName"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label class="details-labels">Prénom</ion-label>
+          <ion-label class="details-labels">Prénom : </ion-label>
           <ion-input class="details" [(ngModel)]="user.firstName"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label class="details-labels">Adresse</ion-label>
+          <ion-label class="details-labels">Adresse : </ion-label>
           <ion-input class="details" [(ngModel)]="user.address"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label class="details-labels">Email</ion-label>
+          <ion-label class="details-labels">Email : </ion-label>
           <ion-input class="details" [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label class="details-labels">Téléphone</ion-label>
+          <ion-label class="details-labels">Téléphone : </ion-label>
           <ion-input class="details" [(ngModel)]="user.phone"></ion-input>
         </ion-item>
       </ion-list>
@@ -110,7 +110,7 @@
         height: 40px;
         width: 180px;
         margin: 20px;
-        margin-left: 75px;
+        margin-left: 100px;
         border-radius: 10px;
         border: 2px solid #ccc;
         background-color: #2196F3;

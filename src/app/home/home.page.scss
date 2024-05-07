@@ -4,8 +4,16 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    
+  
+  //top: 50%;
+  //transform: translateY(-50%);
+}
+#whorwe{
+  --color: #ffffff;
+  background-color: #032f4a7b;
 }
 
 #container strong {
@@ -24,4 +32,40 @@
 
 #container a {
   text-decoration: none;
+}
+
+ion-card {
+  --background: #000c2f;
+  --color: #b5faff;
+}
+
+ion-card-title {
+  --color: #52ffe4;
+}
+
+ion-card-subtitle {
+  --color: #d1fff8;
+}
+
+ion-button {
+  background-color: #d1fff8;
+  --color: #000000;
+}
+ion-tabs {
+  display: flex;
+  
+}
+
+#firstcard {
+  --background: none;
+  background-image: url('https://wallpapercave.com/wp/wp1926439.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+  
+}
+#carent{
+  --color: #034a43;
+  
 }
