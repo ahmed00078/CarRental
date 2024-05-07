@@ -76,7 +76,11 @@ const routes: Routes = [
   {
     path: 'filter',
     loadChildren: () => import('./filter/filter.module').then( m => m.FilterPageModule)
+  },  {
+    path: 'welcomeh',
+    loadChildren: () => import('./welcomeh/welcomeh.module').then( m => m.WelcomehPageModule)
   }
+
   
 ];
 

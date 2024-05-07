@@ -1,0 +1,105 @@
+ion-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100vh; /* Set the height to fill the viewport */
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between; /* Align items to the ends */
+    align-items: center;
+    padding: 0 16px; /* Add some padding */
+  }
+  
+  .search {
+    width: 85%; /* Set the width of the search bar */
+  }
+  
+  .filter-link {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top: 4.5px;
+    right: 5px;
+    background-color: #2196F3;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive grid with minimum width of 150px */
+    grid-gap: 20px; /* Add spacing between cards */
+    justify-content: center; /* Center cards horizontally */
+    align-items: center; /* Center cards vertically */
+  }
+  
+  .car-card {
+    background-color: #ced4da;
+    border-radius: 5%;
+    cursor: pointer;
+    height: 200px; /* Increase the height of the card */
+    padding: 10px; /* Add padding inside the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+  }
+  
+  .car-name {
+    font-size: 17px;
+    font-weight: 800;
+    text-align: center; /* Center the text */
+  }
+  
+  .car-price {
+    font-size: 12px;
+    text-align: center; /* Center the text */
+  }
+  
+  img {
+    width: 100%; /* Make the image fill the card */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 5px; /* Rounded corners for image */
+  }
+  .car-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .car-card {
+    background-color: #ced4da;
+    border-radius: 5%;
+    cursor: pointer;
+    height: 180px;
+    width: 145px;
+    margin-right: 10px; /* Add margin between card and button */
+  }
+  
+  ion-button {
+    height: auto; /* Ensure button height adjusts to content */
+  }
+  .welcome-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    margin-top: 20px ;
+    margin-bottom: 5px; /* Add space below the "Welcome" text */
+  }
+  
+  .car-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .car-card {
+    background-color: #ced4da;
+    border-radius: 5%;
+    cursor: pointer;
+    height: 180px;
+    width: 145px;
+    margin-right: 10px; /* Add margin between card and button */
+  }
+  
+  .button-container {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    margin-left: 90px; /* Add space between the card and the button */
+  }
+      

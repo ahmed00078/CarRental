@@ -10,12 +10,12 @@ import { NavController } from '@ionic/angular';
 })
 export class ProfilePage {
   user = {
-    lastName: 'Haded',
+    lastName: 'Bahloul',
     firstName: 'Fedi',
-    email: 'fedi_haded25@gmail.com',
-    address: 'Avenue Baldi, Elmanzeh 4',
-    phone: '99888000',
-    rentedCars: ['Kia, Seltos (14 jours restants)', 'Toyota, Corolla (37 jours restants)']
+    email: 'fedibahloul@ieee.org',
+    address: 'Manar 1 residense Hnnibal',
+    phone: '26490181',
+    rentedCars: ['Kia, Seltos (14 jours restants)', 'Toyota, Supra MK4 (37 jours restants)']
   };
 
   constructor(private route: ActivatedRoute, private navCtrl: NavController) {
