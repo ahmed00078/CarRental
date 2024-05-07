@@ -1,63 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>signup</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Inscription</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-  <form class="signup-form" (submit)="signup()">
-    <ion-list>
-      <ion-item>
-        <ion-label class="label" stacked>Nom complet</ion-label>
-        <ion-input type="text" [(ngModel)]="fullName" name="fullName"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="label" stacked>Email</ion-label>
-        <ion-input type="email" [(ngModel)]="email" name="email"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="label" stacked>mot de passe</ion-label>
-        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="label" stacked>Confirmer mot de passe</ion-label>
-        <ion-input type="password" [(ngModel)]="confirmPassword" name="confirmPassword"></ion-input>
-      </ion-item>
-      <ion-item>
-        <button ion-button block class="btn" type="submit">Créer compte</button>
-      </ion-item>
-    </ion-list>
+<ion-content class="ion-padding" scrollY="false">
+  <form class="ion-padding" (ngSubmit)="signup()" [formGroup]="signupForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Prénom</ion-label>
+            <ion-input type="text" formControlName="firstName"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input type="text" formControlName="lastName"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="email" formControlName="email"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Mot de passe</ion-label>
+            <ion-input type="password" formControlName="password"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="12">
+          <ion-item>
+            <ion-label position="floating">Confirmer le mot de passe</ion-label>
+            <ion-input type="password" formControlName="confirmPassword"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-button type="submit" expand="block" color="primary" [disabled]="signupForm.invalid">
+            S'inscrire
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </form>
 
-  <div class="signup-options">
-    <p>Vous avez déjà un compte ? <a href="#" class="login-link" (click)="goToLogin()">Se connecter</a></p>
+  <div class="ion-text-center">
+    <p>Vous avez déjà un compte ? <a [routerLink]="['/login']">Se connecter</a></p>
   </div>
 </ion-content>
-
-<style>
-  .label {
-    color: #2E2E2E;
-  }
-  .btn {
-    background-color: #2E2E2E;
-  }
-  .signup-logo img {
-    max-width: 120px;
-
-  }
-
-  .signup-form {
-    padding: 0 20px;
-    margin-top: 30px;
-  }
-
-  .signup-options {
-    margin-top: 30px;
-    text-align: center;
-  }
-
-  .login-link {
-    font-weight: bold;
-  }
-</style>
