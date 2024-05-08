@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-// import { LoginPage } from '../login/login';
+import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../services/profile.service';
 import { NavController } from '@ionic/angular';
 
 @Component({
@@ -8,32 +7,45 @@ import { NavController } from '@ionic/angular';
   templateUrl: 'profile.page.html',
   styleUrls: ['profile.page.scss']
 })
-export class ProfilePage {
-  user = {
-    lastName: 'Bahloul',
-    firstName: 'Fedi',
-    email: 'fedibahloul@ieee.org',
-    address: 'Manar 1 residense Hnnibal',
-    phone: '26490181',
-    rentedCars: ['Kia, Seltos (14 jours restants)', 'Toyota, Supra MK4 (37 jours restants)']
-  };
+export class ProfilePage implements OnInit {
+  user: any;
+  rentedCars: any[] = []; // Tableau pour stocker les voitures louées par l'utilisateur
 
-  constructor(private route: ActivatedRoute, private navCtrl: NavController) {
-    // You can access parameters passed through the URL like this
-    this.route.queryParams.subscribe(params => {
-      // If there are parameters passed, you can access them here
-      console.log(params);
-    });
+  constructor(private profileService: ProfileService, private navCtrl: NavController) {}
+
+  ngOnInit() {
+    this.getUserProfile();
   }
 
-  ionViewDidEnter() {
-    console.log('ionViewDidEnter ProfilePage');
+  getUserProfile() {
+    console.log('Fetching user profile...');
+    this.profileService.getUserProfile().subscribe(
+      (response) => {
+        console.log('User profile:', response);
+        this.user = response.userProfile;
+        console.log('User:', this.user.FirstName, this.user.LastName);
+        // Après avoir récupéré le profil de l'utilisateur, récupérez les voitures louées par cet utilisateur
+        // this.getRentedCars(this.user.UserID);
+      },
+      (error) => {
+        console.log('Error fetching user profile:', error);
+        console.error('Error fetching user profile:', error);
+      }
+    );
   }
 
-  goToLogin() {
-    // Reload the application to simulate logout
-    window.location.reload();
-  }
+  // getRentedCars(userId: number) {
+  //   console.log('Fetching rented cars for user:', userId);
+  //   this.profileService.getRentedCars(userId).subscribe(
+  //     (response) => {
+  //       console.log('Rented cars:', response);
+  //       this.rentedCars = response.rentedCars;
+  //     },
+  //     (error) => {
+  //       console.log('Error fetching rented cars:', error);
+  //     }
+  //   );
+  // }
 
   saveChanges() {
     // Perform user information update operations here
