@@ -1,13 +1,40 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>contracts</ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Contrat</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">contracts</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding" scrollY="false">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="details-title">Reserver votre voiture</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-label class="details-labels">Date Debut  : </ion-label>
+          <ion-input class="details" [(ngModel)]="startDate"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Date FIN : </ion-label>
+          <ion-input class="details" [(ngModel)]="endDate"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Pays: </ion-label>
+          <ion-input class="details" [(ngModel)]="country"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Ville : </ion-label>
+          <ion-input class="details" [(ngModel)]="city"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="details-labels">Téléphone : </ion-label>
+          <ion-input class="details" [(ngModel)]="phone"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <button ion-button class="save-btn" color="primary" (click)="reserve()">RESERVER</button>
+
 </ion-content>

@@ -52,16 +52,7 @@ export class WelcomehPage implements OnInit {
       energy: 'Essence',
       places: 4
     },
-    {
-      brand: 'Kia',
-      model: 'Seltos',
-      image: 'assets/cars/kia-seltos.png',
-      price: 200,
-      speed: 260,
-      gear: 'Automatique',
-      energy: 'Essence',
-      places: 4
-    },
+    
     // Add other car objects here
   ];
 
