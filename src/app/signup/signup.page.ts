@@ -41,7 +41,12 @@ export class SignupPage implements OnInit {
       this.authService.signup(userData).subscribe(
         (response) => {
           if (response) {
-            this.navCtrl.navigateRoot('/profile');
+            if (response.role === 'Regular') {
+              this.navCtrl.navigateRoot('/profile');
+            } else if (response.role === 'Admin') {
+              this.navCtrl.navigateRoot('/dash-admin');
+            }
+            // this.navCtrl.navigateRoot('/profile');
             console.log('Inscription réussie', response);
           } else {
             console.log('Erreur lors de l\'inscription');

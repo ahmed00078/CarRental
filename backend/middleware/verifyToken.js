@@ -5,6 +5,7 @@ const JWT_SECRET = process.env.ACCESS_TOKEN || 'votre_cle_secrete';
 
 const verifyToken = (req, res, next) => {
   const authHeader = req.headers.authorization;
+  console.log("authHeader", authHeader);
   if (!authHeader) {
     return res.status(401).json({ message: 'Jeton d\'authentification manquant' });
   }

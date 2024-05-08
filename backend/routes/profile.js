@@ -4,6 +4,7 @@ const connection = require('../connection');
 const authenticateToken = require('../middleware/verifyToken');
 
 router.get('/getprofile', authenticateToken, (req, res) => {
+    console.log("getprofile :req.user", req.user);
     try {
         const userId = req.user.userId; 
         console.log("userId", userId);
