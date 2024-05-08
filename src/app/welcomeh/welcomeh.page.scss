@@ -23,7 +23,7 @@ ion-content {
     height: 40px;
     top: 4.5px;
     right: 5px;
-    background-color: #2196F3;
+    background-color: #0f5ff4;
   }
   
   .card-container {
@@ -79,8 +79,9 @@ ion-content {
   .welcome-container {
     display: flex;
     justify-content: center; /* Center horizontally */
-    margin-top: 20px ;
-    margin-bottom: 5px; /* Add space below the "Welcome" text */
+    margin-top: 29px ;
+
+    
   }
   
   .car-container {
@@ -89,17 +90,28 @@ ion-content {
   }
   
   .car-card {
-    background-color: #ced4da;
+    background-color: #9ac0e69e;
     border-radius: 5%;
     cursor: pointer;
     height: 180px;
     width: 145px;
-    margin-right: 10px; /* Add margin between card and button */
+    margin-right: 100px; /* Add margin between card and button */
   }
   
   .button-container {
     display: flex;
     align-items: center; /* Align items vertically */
-    margin-left: 90px; /* Add space between the card and the button */
+    margin-left: 180px; /* Add space between the card and the button */
   }
-      
+
+strong{
+    text-align: center;
+    margin-left: 165px;
+}
+  ion-content {
+    --background: none;
+  background-image: url('https://wallpapercave.com/wp/wp1926439.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
