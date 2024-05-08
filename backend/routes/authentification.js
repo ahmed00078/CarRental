@@ -5,8 +5,10 @@ const jwt = require('jsonwebtoken');
 const connection = require('../connection');
 
 router.post('/login', async (req, res) => {
+  console.log("login");
   try {
     const { email, password } = req.body;
+    console.log("login", req.body);
 
     const query = 'SELECT * FROM Users WHERE Email = ? AND Password = ?';
     connection.query(query, [email, password], async (error, results) => {
@@ -32,7 +34,7 @@ router.post('/login', async (req, res) => {
 router.post('/signup', async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
-
+    console.log("signup", req.body);
     // Vérifier si l'utilisateur existe déjà
     const checkQuery = 'SELECT * FROM Users WHERE Email = ?';
     connection.query(checkQuery, [email], async (error, results) => {
