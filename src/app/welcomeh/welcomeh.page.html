@@ -24,7 +24,9 @@
               <ion-card-subtitle class="car-price">{{ car.price }}DT par jour</ion-card-subtitle>
             </ion-card-header>
           </ion-card>
-          <ion-button (click)="printMessage('Hello from the button!')" size="small">Reserver</ion-button> 
+          <div class="button-container">
+            <ion-button (click)="printMessage('Hello from the button!')" size="small" routerLink="/contracts">Reserver</ion-button> 
+          </div>
       </div>
       
     </ion-row>
